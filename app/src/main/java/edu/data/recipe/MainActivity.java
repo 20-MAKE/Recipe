@@ -4,9 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.TextView.OnEditorActionListener;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements OnEditorActionListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -14,8 +17,19 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-    EditText searchBar = findViewById(R.id.searchBar);
+    private EditText searchBar = findViewById(R.id.searchBar);
+    private Button subBtn = findViewById(R.id.btn);
 
-    searchBar.OnEditorActionListener()
+    subBtn.OnClickListener(
+            new Button.OnClickListener() {
+                @Override
+                public void onClick(View view){
+
+            }
+    });
+
+    //    searchBar.setOnEditorActionListener(new TextView.OnEditorActionListener() { // 외않됨? ㅆㅂ
+//        @Override
+//    });
 
 }
