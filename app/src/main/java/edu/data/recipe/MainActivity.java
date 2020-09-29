@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
         searchBar.setOnKeyListener(new View.OnKeyListener() {
             public boolean onKey(View v, int keyCode, KeyEvent event) {
                 if ((keyCode == KeyEvent.KEYCODE_ENTER) && (event.getAction() == KeyEvent.ACTION_UP)) {
-                    // 검색 실행하는 부
+                    // 검색 실행하는 부분
                     RecipeData tmpdata = new RecipeData();
                     tmpdata.setTitle((String)searchBar.getText().toString());
                     tmpdata.setDescription("tmpData Recipe Description");
@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
         );
     }
 
-    protected void printRecipe(RecipeData recipe) { // RecipeData 클래스를 인자로 받고 레시피 데이터를 사용자에게 보여주는 메소
+    protected void printRecipe(RecipeData recipe) { // RecipeData 클래스를 인자로 받고 레시피 데이터를 사용자에게 보여주는 메소드
         TextView resultView = findViewById(R.id.resultView);
         String tmp = (String)recipe.getTitle() + " " + (String)recipe.getDescription();
          resultView.setText(tmp);
