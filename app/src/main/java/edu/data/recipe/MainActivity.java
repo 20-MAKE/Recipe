@@ -11,6 +11,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import java.io.BufferedInputStream;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+
 public class MainActivity extends AppCompatActivity {
 
 
@@ -26,10 +31,17 @@ public class MainActivity extends AppCompatActivity {
             public boolean onKey(View v, int keyCode, KeyEvent event) {
                 if ((keyCode == KeyEvent.KEYCODE_ENTER) && (event.getAction() == KeyEvent.ACTION_UP)) {
                     // 검색 실행하는 부분
-                    RecipeData tmpdata = new RecipeData();
-                    tmpdata.setTitle((String)searchBar.getText().toString());
-                    tmpdata.setDescription("tmpData Recipe Description");
-                    printRecipe(tmpdata);
+                    CallAPI postReq = new CallAPI(new CallAPI.AsyncResponse() {
+                        @Override
+                        public void processFinish(String res) {
+                            Log.d("RECIPE RESPONSE", res);
+                        }
+                    });
+                    postReq.execute("http://heavyrisem.kro.kr:3002/recipe");
+//                    RecipeData tmpdata = new RecipeData();
+//                    tmpdata.setTitle((String)searchBar.getText().toString());
+//                    tmpdata.setDescription("tmpData Recipe Description");
+//                    printRecipe(tmpdata);
 
                     return true;
                 }
@@ -55,6 +67,11 @@ public class MainActivity extends AppCompatActivity {
         String tmp = (String)recipe.getTitle() + " " + (String)recipe.getDescription();
          resultView.setText(tmp);
     }
+
+
+//    protected RecipeData[] requestAll() {
+//
+//    }
 
 
 }
