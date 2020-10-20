@@ -45,11 +45,10 @@ public class CallAPI extends AsyncTask<String, String, String> {
         } else {
             data = params[1];
         }
-        Log.d("tlqkf", data);
+
 
         try {
             URL url = new URL(urlString);
-//            Log.d("LOG", urlString);
             HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
             urlConnection.setRequestMethod("POST");
             urlConnection.setDoInput(true);
