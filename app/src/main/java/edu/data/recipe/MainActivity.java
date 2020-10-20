@@ -11,6 +11,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import org.json.*;
+
 import java.io.BufferedInputStream;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
@@ -25,19 +27,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         searchBar = findViewById(R.id.searchBar);
         searchBar.setOnKeyListener(new View.OnKeyListener() {
             public boolean onKey(View v, int keyCode, KeyEvent event) {
                 if ((keyCode == KeyEvent.KEYCODE_ENTER) && (event.getAction() == KeyEvent.ACTION_UP)) {
                     // 검색 실행하는 부분
-                    CallAPI postReq = new CallAPI(new CallAPI.AsyncResponse() {
-                        @Override
-                        public void processFinish(String res) {
-                            Log.d("RECIPE RESPONSE", res);
-                        }
-                    });
-                    postReq.execute("http://heavyrisem.kro.kr:3002/recipe");
+
 //                    RecipeData tmpdata = new RecipeData();
 //                    tmpdata.setTitle((String)searchBar.getText().toString());
 //                    tmpdata.setDescription("tmpData Recipe Description");
@@ -53,8 +48,6 @@ public class MainActivity extends AppCompatActivity {
         chBtn.setOnClickListener(
                 new Button.OnClickListener(){
                     public void onClick(View v){
-                        Log.d("DATA_SNS","asdasd");
-
                         Intent first_intent = new Intent(MainActivity.this, ToolbarActivity.class);
                         startActivity(first_intent);
                     }
@@ -62,10 +55,59 @@ public class MainActivity extends AppCompatActivity {
         );
     }
 
+    public RecipeData[] getAllRecipe() {
+
+        CallAPI postReq = new CallAPI(new CallAPI.AsyncResponse() {
+        @Override
+        public void processFinish(String res) {
+            try {
+//                                Log.d("Result", res);
+                JSONObject obj = new JSONObject(res);
+                JSONArray recipes_arr = obj.getJSONArray("result");
+                RecipeData[] recipes = new RecipeData[recipes_arr.length()];
+
+                for (int i = 0; i < recipes_arr.length(); i++) {
+                    JSONObject recipeobj = recipes_arr.getJSONObject(i);
+                    RecipeData recipe = new RecipeData();
+
+                    recipe.setTitle(recipeobj.getString("name"));
+                    recipe.setURL(recipeobj.getString("img"));
+
+                    JSONArray desc_arr = recipeobj.getJSONArray("making");
+                    String[] description = new String[desc_arr.length()];
+                    for (int j = 0; j < desc_arr.length(); j++) {
+                        description[j] = desc_arr.getString(j);
+                    }
+                    recipe.setDescription(description);
+
+                    JSONArray ingred_arr = recipeobj.getJSONArray("ing");
+                    String[] ingreds = new String[ingred_arr.length()];
+                    for (int j = 0; j < ingred_arr.length(); j++) {
+                        ingreds[j] = ingred_arr.getString(j);
+                    }
+                    recipe.setIngreds(ingreds);
+
+
+
+                    recipes[i] = recipe;
+
+                }
+
+
+                return recipes;
+
+            } catch (Exception e) {
+
+            }
+        }});
+
+        postReq.execute("http://heavyrisem.kro.kr:3002/recipe/getall", "");
+    }
+
     protected void printRecipe(RecipeData recipe) { // RecipeData 클래스를 인자로 받고 레시피 데이터를 사용자에게 보여주는 메소드
         TextView resultView = findViewById(R.id.resultView);
-        String tmp = (String)recipe.getTitle() + " " + (String)recipe.getDescription();
-         resultView.setText(tmp);
+        String tmp = (String)recipe.getTitle() + " " + (String)recipe.getStringDescription();
+        resultView.setText(tmp);
     }
 
 

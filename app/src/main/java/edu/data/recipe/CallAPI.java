@@ -39,21 +39,31 @@ public class CallAPI extends AsyncTask<String, String, String> {
     @Override
     protected String doInBackground(String... params) {
         String urlString = params[0]; // URL to call
-        String data = params[1]; //data to post
+        String data;
+        if (params[1].equals(null)) { // data to post
+            data = "";
+        } else {
+            data = params[1];
+        }
+        Log.d("tlqkf", data);
 
         try {
             URL url = new URL(urlString);
+//            Log.d("LOG", urlString);
             HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
             urlConnection.setRequestMethod("POST");
             urlConnection.setDoInput(true);
             urlConnection.setDoOutput(true);
+
             OutputStream out = new BufferedOutputStream(urlConnection.getOutputStream());
+
 
             BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(out, "UTF-8"));
             writer.write(data);
             writer.flush();
             writer.close();
             out.close();
+
 
             urlConnection.connect();
 
@@ -68,7 +78,8 @@ public class CallAPI extends AsyncTask<String, String, String> {
 
             return sb.toString();
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            e.printStackTrace();
+//            System.out.println(e.getMessage());
             return "오류";
         }
     }
