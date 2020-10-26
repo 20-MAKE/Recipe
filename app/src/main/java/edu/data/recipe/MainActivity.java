@@ -40,6 +40,9 @@ public class MainActivity extends AppCompatActivity {
 
                                 JSONObject obj = new JSONObject(res);
                                 JSONArray recipes_arr = obj.getJSONArray("result");
+                                if (recipes_arr.length() == 0) {
+                                    showRecipe(null);
+                                }
                                 RecipeData[] recipes = new RecipeData[recipes_arr.length()];
 
                                 for (int i = 0; i < recipes_arr.length(); i++) {
@@ -145,7 +148,12 @@ public class MainActivity extends AppCompatActivity {
 
     protected void showRecipe(RecipeData recipe) { // RecipeData 클래스를 인자로 받고 레시피 데이터를 사용자에게 보여주는 메소드
         TextView resultView = findViewById(R.id.resultView);
-        String tmp = (String)recipe.getTitle() + " " + (String)recipe.getStringDescription();
+        String tmp;
+        if (recipe == null) {
+            tmp = "결과값이 없습니다.";
+        } else {
+            tmp = (String)recipe.getTitle() + " " + (String)recipe.getStringDescription();
+        }
         resultView.setText(tmp);
     }
 
