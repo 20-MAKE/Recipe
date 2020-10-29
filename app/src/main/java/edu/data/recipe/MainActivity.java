@@ -1,15 +1,22 @@
 package edu.data.recipe;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatEditText;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.Spanned;
+import android.text.TextWatcher;
+import android.text.style.ImageSpan;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import com.google.android.material.chip.ChipDrawable;
 
 import org.json.*;
 
@@ -22,12 +29,56 @@ public class MainActivity extends AppCompatActivity {
 
 
     EditText searchBar;
-
+    private int SpannedLength = 0,chipLength = 4;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         searchBar = findViewById(R.id.searchBar);
+
+
+
+
+
+
+        AppCompatEditText Phone = findViewById(R.id.phone);
+
+        Phone.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                if (charSequence.length() == SpannedLength - chipLength)
+                {
+                    SpannedLength = charSequence.length();
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+                if(editable.length() - SpannedLength == chipLength) {
+                    ChipDrawable chip = ChipDrawable.createFromResource(getApplicationContext(), R.xml.chip);
+//                    chip.setText(editable.subSequence(SpannedLength,editable.length()));
+//                    chip.setBounds(0, 0, chip.getIntrinsicWidth(), chip.getIntrinsicHeight());
+//                    ImageSpan span = new ImageSpan(chip);
+//                    editable.setSpan(span, SpannedLength, editable.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                    SpannedLength = editable.length();
+                }
+
+            }
+        });
+
+
+
+
+
+
+
+
         searchBar.setOnKeyListener(new View.OnKeyListener() {
             public boolean onKey(View v, int keyCode, KeyEvent event) {
                 if ((keyCode == KeyEvent.KEYCODE_ENTER) && (event.getAction() == KeyEvent.ACTION_UP)) {
@@ -76,7 +127,7 @@ public class MainActivity extends AppCompatActivity {
                             }
                         }});
                     Log.d("posting data", searchBar.getText().toString());
-                    postReq.execute("http://heavyrisem.kro.kr:3002/search/recipe_search", "list=" + searchBar.getText().toString());
+                    postReq.execute("http://localhost:3002/search/recipe_search", "list=" + searchBar.getText().toString());
 //                    RecipeData tmpdata = new RecipeData();
 //                    tmpdata.setTitle((String)searchBar.getText().toString());
 //                    tmpdata.setDescription("tmpData Recipe Description");
@@ -127,7 +178,7 @@ public class MainActivity extends AppCompatActivity {
 
                 }
             }});
-        postReq.execute("http://heavyrisem.kro.kr:3002/recipe/getall", "");
+        postReq.execute("http://localhost:3002/recipe/getall", "");
 
         Button chBtn = findViewById(R.id.setting_btn);
         chBtn.setOnClickListener(

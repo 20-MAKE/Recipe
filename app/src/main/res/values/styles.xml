@@ -1,7 +1,7 @@
 <resources>
     <!-- Base application theme. -->
 
-    <style name="AppTheme" parent="Theme.MaterialComponents.Light">
+    <style name="AppTheme" parent="Theme.AppCompat">
 <!--        <style name="AppTheme" parent="Theme.AppCompat.DayNight">-->
             <!-- Customize your theme here. -->
             <item name="colorPrimary">@color/colorPrimary</item>
@@ -9,6 +9,7 @@
             <item name="colorAccent">@color/colorAccent</item>
 <!--        </style>    -->
     </style>
-    
-
+    <style name="ChipTextApperance" parent="Theme.MaterialComponents">
+        <item name="android:textColor">@android:color/white</item>
+    </style>
 </resources>
