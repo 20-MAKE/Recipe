@@ -76,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
                             }
                         }});
                     Log.d("posting data", searchBar.getText().toString());
-                    postReq.execute("http://heavyrisem.kro.kr:3002/search/recipe_search", "list=" + searchBar.getText().toString());
+                    postReq.execute("http://iinsu.kro.kr:3002/search/recipe_search", "list=" + searchBar.getText().toString());
 //                    RecipeData tmpdata = new RecipeData();
 //                    tmpdata.setTitle((String)searchBar.getText().toString());
 //                    tmpdata.setDescription("tmpData Recipe Description");
@@ -127,7 +127,7 @@ public class MainActivity extends AppCompatActivity {
 
                 }
             }});
-        postReq.execute("http://heavyrisem.kro.kr:3002/recipe/getall", "");
+        postReq.execute("http://iinsu.kro.kr:3002/recipe/getall", "");
 
         Button chBtn = findViewById(R.id.setting_btn);
         chBtn.setOnClickListener(
@@ -147,14 +147,14 @@ public class MainActivity extends AppCompatActivity {
 //    }
 
     protected void showRecipe(RecipeData recipe) { // RecipeData 클래스를 인자로 받고 레시피 데이터를 사용자에게 보여주는 메소드
-        TextView resultView = findViewById(R.id.resultView);
-        String tmp;
-        if (recipe == null) {
-            tmp = "결과값이 없습니다.";
-        } else {
-            tmp = (String)recipe.getTitle() + " " + (String)recipe.getStringDescription();
-        }
-        resultView.setText(tmp);
+//        TextView resultView = findViewById(R.id.resultView);
+//        String tmp;
+//        if (recipe == null) {
+//            tmp = "결과값이 없습니다.";
+//        } else {
+//            tmp = (String)recipe.getTitle() + " " + (String)recipe.getStringDescription();
+//        }
+//        resultView.setText(tmp);
     }
 
 

@@ -6,6 +6,25 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <androidx.appcompat.widget.Toolbar
+        app:layout_constraintTop_toTopOf="parent"
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Title"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="@+id/toolbar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </TextView>
+    </androidx.appcompat.widget.Toolbar>
+
     <EditText
         android:id="@+id/searchBar"
         android:layout_width="288dp"
@@ -20,14 +39,14 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.118" />
 
-    <TextView
-        android:id="@+id/resultView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+<!--    <TextView-->
+<!--        android:id="@+id/resultView"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent" />-->
 
     <Button
         android:id="@+id/setting_btn"
@@ -41,14 +60,57 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.935" />
 
-    <com.google.android.material.chip.Chip
-        android:id="@+id/chip"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="72dp"
-        android:layout_marginTop="184dp"
-        android:text="Chip"
+    <androidx.gridlayout.widget.GridLayout
+        android:layout_width="347dp"
+        android:layout_height="550dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/searchBar"
+        app:orientation = "horizontal"
+        app:rowCount="1000"
+        app:columnCount="2"
+        app:layout_gravity="center_horizontal">
+        <Button android:text="1"></Button>
+        <Button android:text="2"></Button>
+        <Button android:text="3"></Button>
+        <Button android:text="4"></Button>
+        <Button android:text="5"></Button>
+        <Button android:text="6"></Button>
+        <Button android:text="7"></Button>
+        <Button android:text="8"></Button>
+        <Button android:text="9"></Button>
+        <Button android:text="0"></Button>
+        <Button android:text="2"></Button>
+        <Button android:text="3"></Button>
+        <Button android:text="4"></Button>
+        <Button android:text="5"></Button>
+        <Button android:text="6"></Button>
+        <Button android:text="7"></Button>
+        <Button android:text="8"></Button>
+        <Button android:text="9"></Button>
+        <Button android:text="0"></Button>
+        <Button android:text="1"></Button>
+        <Button android:text="2"></Button>
+        <Button android:text="3"></Button>
+        <Button android:text="4"></Button>
+        <Button android:text="5"></Button>
+        <Button android:text="6"></Button>
+        <Button android:text="7"></Button>
+        <Button android:text="8"></Button>
+        <Button android:text="9"></Button>
+        <Button android:text="0"></Button>
+        <Button android:text="2"></Button>
+        <Button android:text="3"></Button>
+        <Button android:text="4"></Button>
+        <Button android:text="5"></Button>
+        <Button android:text="6"></Button>
+        <Button android:text="7"></Button>
+        <Button android:text="8"></Button>
+        <Button android:text="9"></Button>
+        <Button android:text="0"></Button>
+        <Button android:text="9"></Button>
+        <Button android:text="0"></Button>
+    </androidx.gridlayout.widget.GridLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
