@@ -69,207 +69,329 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.694">
-    <LinearLayout
-        android:layout_width="372dp"
-        android:layout_height="502dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.487"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.694"
-        tools:ignore="MissingConstraints"
-        android:orientation="vertical">
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="350dp"
+            android:id="@+id/recipelist_root"
+            android:layout_width="372dp"
+            android:layout_height="502dp"
+            android:orientation="horizontal"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.487"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.694"
-            tools:ignore="MissingConstraints"
-            android:orientation="horizontal">
-            <androidx.cardview.widget.CardView
-                android:id="@+id/recipe_card"
-                android:layout_width="0dp"
+            tools:ignore="MissingConstraints">
+
+            <LinearLayout
+                android:layout_width="50dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                tools:ignore="MissingConstraints"
-                android:layout_gravity="fill_vertical">
-                <LinearLayout
-                    android:layout_width="match_parent"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.487"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.694"
+                tools:ignore="MissingConstraints">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="1dp"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:layout_gravity="fill_vertical"
+                    android:layout_weight="1"
+                    tools:ignore="MissingConstraints">
 
-                    <ImageView
-                        android:id="@+id/recipe_img"
+                    <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_weight="3"
-                        tools:srcCompat="@tools:sample/backgrounds/scenic"
-                        android:layout_height="0dp" />
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
 
-                    <TextView
-                        android:id="@+id/recipe_title"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text="타코야끼 "
-                        android:layout_weight="0"/>
-                    <TextView
-                        android:id="@+id/recipe_ingreds"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text="오징어 오엉징"
-                        android:layout_weight="0"/>
-                    <TextView
-                        android:id="@+id/recipe_making"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text="대머리를 찾으세요
-                        머리를 미세요"
-                        android:layout_weight="5"/>
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="100dp"
+                            android:layout_weight="3"
+                            tools:srcCompat="@tools:sample/backgrounds/scenic" />
 
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-            <androidx.cardview.widget.CardView
-                android:id="@+id/recipe_1card"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="23dp"
+                            android:layout_marginTop="3dp"
+                            android:layout_marginEnd="23dp"
+                            android:layout_weight="0"
+                            android:text="타코야끼"
+                            android:textSize="20dp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="23dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginEnd="23dp"
+                            android:layout_marginBottom="5dp"
+                            android:layout_weight="0"
+                            android:text="오징어 오엉징" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="23dp"
+                            android:layout_marginEnd="23dp"
+                            android:layout_weight="5"
+                            android:text="Lorem ipsum Sed eiusmod esse
+aliqua sed incididunt aliqua
+incididunt mollit id et sit proident
+aliqua cillum in consequat
+consequat in culpa in anim." />
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="1dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="fill_vertical"
+                    android:layout_weight="1"
+                    tools:ignore="MissingConstraints">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="100dp"
+                            android:layout_weight="3"
+                            tools:srcCompat="@tools:sample/backgrounds/scenic" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="23dp"
+                            android:layout_marginTop="3dp"
+                            android:layout_marginEnd="23dp"
+                            android:layout_weight="0"
+                            android:text="타코야끼"
+                            android:textSize="20dp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="23dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginEnd="23dp"
+                            android:layout_marginBottom="5dp"
+                            android:layout_weight="0"
+                            android:text="오징어 오엉징" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="23dp"
+                            android:layout_marginEnd="23dp"
+                            android:layout_weight="5"
+                            android:text="Lorem ipsum Sed eiusmod esse
+aliqua sed incididunt aliqua
+incididunt mollit id et sit proident
+dolor nulla sed commodo est ad
+minim elit reprehenderit nisisdlkfjadsfasdf
+a
+sdf
+a
+sf
+as
+df
+adfssssdddlskfjalskfjlaskdfj;alskdf;adfj;alksdfja;lskfj
+asdfasdkjflaksdjfldsflkalkff
+alkfalsdkjfalkdflkasf
+asdjkfnaslkfjalsdkfjlaksjf
+aslfkjalkfjalkfjalsdf
+asklfjaslkfjalskfjs
+alskdfjalksdjfasdf
+alkdfjalksdjf
+asdfklasd
+fasd
+f
+asdf
+a
+sdf
+asd
+fas
+df
+asd
+fa
+sdf
+as
+f
+asdfkadjflakdsjkfljasdf
+asdfkjasdlfkjaslfas
+dfkasjdjflaksjf
+aflksalfkjasf
+asdkfljasdlkfjas
+fkladflkajdsf
+asdlfkjas
+faskdlfa
+sdfkjasd
+faslf
+asf;kajsdk'
+fasdk;jf
+a'sldfkas'd
+f;
+'as;f
+'asd;f
+'alsd
+f'lasdflas
+d;fl
+;asf
+'asdlf'asd
+'flas
+;fl
+asdf
+a
+sf
+ads
+f
+officia aute incididunt velit sint in
+aliqua cillum in consequat
+consequat in culpa in anim." />
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="350dp"
                 android:layout_weight="1"
-                tools:ignore="MissingConstraints"
-                android:layout_gravity="fill_vertical">
-                <LinearLayout
-                    android:layout_width="match_parent"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.487"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.694"
+                tools:ignore="MissingConstraints">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="1dp"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:layout_gravity="fill_vertical"
+                    android:layout_weight="1"
+                    tools:ignore="MissingConstraints">
 
-                    <ImageView
-                        android:id="@+id/recipe1_img"
+                    <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_weight="3"
-                        tools:srcCompat="@tools:sample/backgrounds/scenic"
-                        android:layout_height="0dp" />
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
 
-                    <TextView
-                        android:id="@+id/recipe_ti1tle"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text="타코야끼 "
-                        android:layout_weight="0"/>
-                    <TextView
-                        android:id="@+id/recipe_in1greds"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text="오징어 오엉징"
-                        android:layout_weight="0"/>
-                    <TextView
-                        android:id="@+id/recipe1_making"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text="대머리를 찾으세요
-                        머리를 미세요"
-                        android:layout_weight="5"/>
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="100dp"
+                            android:layout_weight="3"
+                            tools:srcCompat="@tools:sample/backgrounds/scenic" />
 
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="23dp"
+                            android:layout_marginTop="3dp"
+                            android:layout_marginEnd="23dp"
+                            android:layout_weight="0"
+                            android:text="타코야끼"
+                            android:textSize="20dp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="23dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginEnd="23dp"
+                            android:layout_marginBottom="5dp"
+                            android:layout_weight="0"
+                            android:text="오징어 오엉징" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="23dp"
+                            android:layout_marginEnd="23dp"
+                            android:layout_weight="5"
+                            android:text="Lorem ipsum Sed eiusmod esse
+aliqua sed incididunt aliqua
+incididunt mollit id et sit proident
+dolor nulla sed commodo est ad
+minim elit reprehenderit nisi
+officia aute incididunt velit sint in
+aliqua cillum in consequat
+consequat in culpa in anim." />
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="1dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="fill_vertical"
+                    android:layout_weight="1"
+                    tools:ignore="MissingConstraints">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="100dp"
+                            android:layout_weight="3"
+                            tools:srcCompat="@tools:sample/backgrounds/scenic" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="23dp"
+                            android:layout_marginTop="3dp"
+                            android:layout_marginEnd="23dp"
+                            android:layout_weight="0"
+                            android:text="타코야끼"
+                            android:textSize="20dp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="23dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginEnd="23dp"
+                            android:layout_marginBottom="5dp"
+                            android:layout_weight="0"
+                            android:text="오징어 오엉징" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="23dp"
+                            android:layout_marginEnd="23dp"
+                            android:layout_weight="5"
+                            android:text="Lorem ipsum Sed eiusmod esse
+aliqua sed incididunt aliqua
+incididunt mollit id et sit proident
+dolor nulla sed commodo est ad
+minim elit reprehenderit nisi
+officia aute incididunt velit sint in
+aliqua cillum in consequat
+consequat in culpa in anim." />
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
         </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="350dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.487"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.694"
-            tools:ignore="MissingConstraints"
-            android:orientation="horizontal">
-        <androidx.cardview.widget.CardView
-            android:id="@+id/recip4e_card"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            tools:ignore="MissingConstraints"
-            android:layout_gravity="fill_vertical">
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:id="@+id/reci4pe_img"
-                    android:layout_width="match_parent"
-                    android:layout_weight="3"
-                    tools:srcCompat="@tools:sample/backgrounds/scenic"
-                    android:layout_height="0dp" />
-
-                <TextView
-                    android:id="@+id/recipe4_title"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:text="타코야끼 "
-                    android:layout_weight="0"/>
-                <TextView
-                    android:id="@+id/reci4pe_ingreds"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:text="오징어 오엉징"
-                    android:layout_weight="0"/>
-                <TextView
-                    android:id="@+id/recipe_m4aking"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:text="대머리를 찾으세요
-                        머리를 미세요"
-                    android:layout_weight="5"/>
-
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
-        <androidx.cardview.widget.CardView
-            android:id="@+id/recip3e_card"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            tools:ignore="MissingConstraints"
-            android:layout_gravity="fill_vertical">
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:id="@+id/recipe3_img"
-                    android:layout_width="match_parent"
-                    android:layout_weight="3"
-                    tools:srcCompat="@tools:sample/backgrounds/scenic"
-                    android:layout_height="0dp" />
-
-                <TextView
-                    android:id="@+id/recipe_ti3tle"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:text="타코야끼 "
-                    android:layout_weight="0"/>
-                <TextView
-                    android:id="@+id/recipe_in3greds"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:text="오징어 오엉징"
-                    android:layout_weight="0"/>
-                <TextView
-                    android:id="@+id/recipe_mak3ing"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:text="대머리를 찾으세요
-                        머리를 미세요"
-                    android:layout_weight="5"/>
-
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
-    </LinearLayout>
-    </LinearLayout>
 </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
