@@ -2,21 +2,22 @@ package edu.data.recipe;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.KeyEvent;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
-import org.json.*;
+import com.bumptech.glide.Glide;
 
-import java.io.BufferedInputStream;
-import java.io.InputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
+import org.json.*;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -70,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
                                     recipes[i] = recipe;
 
                                 }
-                                showRecipe(recipes[0]);
+                                showRecipe(recipes);
                             } catch (Exception e) {
 
                             }
@@ -122,7 +123,7 @@ public class MainActivity extends AppCompatActivity {
                         recipes[i] = recipe;
 
                     }
-                    showRecipe(recipes[0]);
+                    showRecipe(recipes);
                 } catch (Exception e) {
 
                 }
@@ -146,7 +147,40 @@ public class MainActivity extends AppCompatActivity {
 //
 //    }
 
-    protected void showRecipe(RecipeData recipe) { // RecipeData 클래스를 인자로 받고 레시피 데이터를 사용자에게 보여주는 메소드
+    protected void showRecipe(RecipeData[] recipe) { // RecipeData 클래스를 인자로 받고 레시피 데이터를 사용자에게 보여주는 메소드
+//        LayoutInflater first_line_inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+//        LayoutInflater second_line_inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+//        View first_line_view = first_line_inflater.inflate(R.layout.recipe_vertical_line, (ViewGroup) findViewById(R.id.recipelist_root), true);
+//        View second_line_view = second_line_inflater.inflate(R.layout.recipe_vertical_line, (ViewGroup) findViewById(R.id.recipelist_root), true);
+        LayoutInflater line_inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        for (int i = 0; i < recipe.length; i++) {
+            Log.d("URL", recipe[i].getImgURL());
+            if ((i % 2) == 0) {
+                LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                View view = inflater.inflate(R.layout.recipe_card, (ViewGroup) findViewById(R.id.recipelist_line1), true);
+                ImageView imageView = view.findViewById(R.id.recipe_image);
+                Glide.with(this).load(recipe[i].getImgURL()).into((imageView));
+                TextView title = view.findViewById(R.id.recipe_title);
+                TextView ingreds = view.findViewById(R.id.recipe_ingreds);
+                TextView making = view.findViewById(R.id.recipe_making);
+                title.setText(recipe[i].getTitle());
+                ingreds.setText(recipe[i].getStringIngreds());
+                making.setText(recipe[i].getStringDescription());
+            } else {
+                LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                View view = inflater.inflate(R.layout.recipe_card, (ViewGroup) findViewById(R.id.recipelist_line2), true);
+                ImageView imageView = view.findViewById(R.id.recipe_image);
+                Glide.with(this).load(recipe[i].getImgURL()).into((imageView));
+                TextView title = view.findViewById(R.id.recipe_title);
+                TextView ingreds = view.findViewById(R.id.recipe_ingreds);
+                TextView making = view.findViewById(R.id.recipe_making);
+                title.setText(recipe[i].getTitle());
+                ingreds.setText(recipe[i].getStringIngreds());
+                making.setText(recipe[i].getStringDescription());
+            }
+
+        }
+
 //        TextView resultView = findViewById(R.id.resultView);
 //        String tmp;
 //        if (recipe == null) {

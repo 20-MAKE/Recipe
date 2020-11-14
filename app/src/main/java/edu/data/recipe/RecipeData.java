@@ -56,6 +56,15 @@ public class RecipeData {
     public String[] getIngreds() {
         return this.ingreds;
     }
+    public String getStringIngreds() {
+        String ingred = "";
+        for (int i = 0; i < this.ingreds.length; i++) {
+            ingred = ingred + this.ingreds[i];
+        }
+        return ingred;
+    }
+
+
 
     public String getImgURL() {
         return this.imgURL;
