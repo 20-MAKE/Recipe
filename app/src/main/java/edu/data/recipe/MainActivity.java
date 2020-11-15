@@ -147,11 +147,7 @@ public class MainActivity extends AppCompatActivity {
 //
 //    }
 
-    protected void showRecipe(RecipeData[] recipe) { // RecipeData 클래스를 인자로 받고 레시피 데이터를 사용자에게 보여주는 메소드
-//        LayoutInflater first_line_inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-//        LayoutInflater second_line_inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-//        View first_line_view = first_line_inflater.inflate(R.layout.recipe_vertical_line, (ViewGroup) findViewById(R.id.recipelist_root), true);
-//        View second_line_view = second_line_inflater.inflate(R.layout.recipe_vertical_line, (ViewGroup) findViewById(R.id.recipelist_root), true);
+    protected void showRecipe(RecipeData[] recipe) {
         LayoutInflater line_inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         for (int i = 0; i < recipe.length; i++) {
             Log.d("URL", recipe[i].getImgURL());
@@ -160,6 +156,7 @@ public class MainActivity extends AppCompatActivity {
                 View view = inflater.inflate(R.layout.recipe_card, (ViewGroup) findViewById(R.id.recipelist_line1), true);
                 ImageView imageView = view.findViewById(R.id.recipe_image);
                 Glide.with(this).load(recipe[i].getImgURL()).into((imageView));
+                view.findViewById(R.id.recipelist_line1).getVi
                 TextView title = view.findViewById(R.id.recipe_title);
                 TextView ingreds = view.findViewById(R.id.recipe_ingreds);
                 TextView making = view.findViewById(R.id.recipe_making);
@@ -171,6 +168,7 @@ public class MainActivity extends AppCompatActivity {
                 View view = inflater.inflate(R.layout.recipe_card, (ViewGroup) findViewById(R.id.recipelist_line2), true);
                 ImageView imageView = view.findViewById(R.id.recipe_image);
                 Glide.with(this).load(recipe[i].getImgURL()).into((imageView));
+
                 TextView title = view.findViewById(R.id.recipe_title);
                 TextView ingreds = view.findViewById(R.id.recipe_ingreds);
                 TextView making = view.findViewById(R.id.recipe_making);
@@ -180,15 +178,6 @@ public class MainActivity extends AppCompatActivity {
             }
 
         }
-
-//        TextView resultView = findViewById(R.id.resultView);
-//        String tmp;
-//        if (recipe == null) {
-//            tmp = "결과값이 없습니다.";
-//        } else {
-//            tmp = (String)recipe.getTitle() + " " + (String)recipe.getStringDescription();
-//        }
-//        resultView.setText(tmp);
     }
 
 

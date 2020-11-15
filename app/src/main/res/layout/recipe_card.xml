@@ -27,7 +27,7 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="23dp"
             android:layout_weight="0"
-            android:text="타코야끼"
+            android:text="Title"
             android:textSize="20dp"
             android:textStyle="bold" />
 
@@ -40,7 +40,7 @@
             android:layout_marginEnd="23dp"
             android:layout_marginBottom="5dp"
             android:layout_weight="0"
-            android:text="오징어 오엉징" />
+            android:text="If you see this, data was not loaded" />
 
         <TextView
             android:id="@+id/recipe_making"
