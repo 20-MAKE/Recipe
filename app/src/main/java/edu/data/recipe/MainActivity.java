@@ -156,18 +156,24 @@ public class MainActivity extends AppCompatActivity {
                 View view = inflater.inflate(R.layout.recipe_card, (ViewGroup) findViewById(R.id.recipelist_line1), true);
                 ImageView imageView = view.findViewById(R.id.recipe_image);
                 Glide.with(this).load(recipe[i].getImgURL()).into((imageView));
-                view.findViewById(R.id.recipelist_line1).getVi
+                imageView.setId(i);
+
+//                view.findViewById(R.id.recipelist_line1).getVi
                 TextView title = view.findViewById(R.id.recipe_title);
                 TextView ingreds = view.findViewById(R.id.recipe_ingreds);
                 TextView making = view.findViewById(R.id.recipe_making);
                 title.setText(recipe[i].getTitle());
                 ingreds.setText(recipe[i].getStringIngreds());
                 making.setText(recipe[i].getStringDescription());
+                title.setId(i);
+                ingreds.setId(i);
+                making.setId(i);
             } else {
                 LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
                 View view = inflater.inflate(R.layout.recipe_card, (ViewGroup) findViewById(R.id.recipelist_line2), true);
                 ImageView imageView = view.findViewById(R.id.recipe_image);
                 Glide.with(this).load(recipe[i].getImgURL()).into((imageView));
+                imageView.setId(i);
 
                 TextView title = view.findViewById(R.id.recipe_title);
                 TextView ingreds = view.findViewById(R.id.recipe_ingreds);
@@ -175,6 +181,9 @@ public class MainActivity extends AppCompatActivity {
                 title.setText(recipe[i].getTitle());
                 ingreds.setText(recipe[i].getStringIngreds());
                 making.setText(recipe[i].getStringDescription());
+                title.setId(i);
+                ingreds.setId(i);
+                making.setId(i);
             }
 
         }
