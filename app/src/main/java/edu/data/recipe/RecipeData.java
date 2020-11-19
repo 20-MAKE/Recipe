@@ -5,6 +5,7 @@ public class RecipeData {
     private String[] description;
     private String[] ingreds;
     private String imgURL;
+    private int id;
 
     public void setData(String title, String[] description, String[] ingreds, String URL) {
         setTitle(title);
@@ -36,7 +37,9 @@ public class RecipeData {
     }
 
 
-
+    public void setID(int id) {
+        this.id = id;
+    }
 
     public String getTitle() {
         return this.title;
@@ -69,7 +72,9 @@ public class RecipeData {
     public String getImgURL() {
         return this.imgURL;
     }
-
+    public int getID() {
+        return this.id;
+    }
 
     @Override
     public String toString() {

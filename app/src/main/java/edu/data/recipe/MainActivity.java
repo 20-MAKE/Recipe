@@ -34,6 +34,21 @@ public class MainActivity extends AppCompatActivity {
                 if ((keyCode == KeyEvent.KEYCODE_ENTER) && (event.getAction() == KeyEvent.ACTION_UP)) {
                     // 검색 실행하는 부분
 
+//                    CallAPI postREQ = new CallAPI(new CallAPI.AsyncResponse() {
+//                        @Override
+//                        public void processFinish(String res) {
+//                            try {
+//                                Log.d("res", res);
+////                                JSONObject obj = new JSONObject(res);
+//
+//                            } catch(Exception e) {
+//
+//                            }
+//                        }
+//                    });
+//                    postREQ.execute("http://52.231.199.17:88", "id=");
+
+
                     CallAPI postReq = new CallAPI(new CallAPI.AsyncResponse() {
                         @Override
                         public void processFinish(String res) {
@@ -66,6 +81,11 @@ public class MainActivity extends AppCompatActivity {
                                         ingreds[j] = ingred_arr.getString(j);
                                     }
                                     recipe.setIngreds(ingreds);
+
+                                    int id = recipeobj.getInt("id");
+                                    Log.d("id", id+"");
+                                    recipe.setID(id);
+
 
                                     Log.d("recipe", recipe.toString());
                                     recipes[i] = recipe;
@@ -119,13 +139,17 @@ public class MainActivity extends AppCompatActivity {
                         }
                         recipe.setIngreds(ingreds);
 
+                        int id = recipeobj.getInt("id");
+                        Log.d("id", id+"");
+                        recipe.setID(id);
+
                         Log.d("recipe", recipe.toString());
                         recipes[i] = recipe;
 
                     }
                     showRecipe(recipes);
                 } catch (Exception e) {
-
+                    Log.d("ERR", e.toString());
                 }
             }});
         postReq.execute("http://iinsu.kro.kr:3002/recipe/getall", "");
