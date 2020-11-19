@@ -3,5 +3,6 @@
     <domain-config cleartextTrafficPermitted="true">
         <domain includeSubdomains="true">heavyrisem.kro.kr</domain>
         <domain includeSubdomains="true">iinsu.kro.kr</domain>
+        <domain includeSubdomains="true">www.foodsafetykorea.go.kr</domain>
     </domain-config>
 </network-security-config>
