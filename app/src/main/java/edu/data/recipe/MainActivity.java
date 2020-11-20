@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
 //                    });
 //                    postREQ.execute("http://52.231.199.17:88", "id=");
 
-
+3ㄹ
                     CallAPI postReq = new CallAPI(new CallAPI.AsyncResponse() {
                         @Override
                         public void processFinish(String res) {
@@ -97,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
                             }
                         }});
                     Log.d("posting data", searchBar.getText().toString());
-                    postReq.execute("http://iinsu.kro.kr:3002/search/recipe_search", "list=" + searchBar.getText().toString());
+                    postReq.execute("http://iinsu.kro.kr:3002/searchByid/searchByid", "list=" + searchBar.getText().toString());
 //                    RecipeData tmpdata = new RecipeData();
 //                    tmpdata.setTitle((String)searchBar.getText().toString());
 //                    tmpdata.setDescription("tmpData Recipe Description");
@@ -113,6 +113,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void processFinish(String res) {
                 try {
+                    Log.d("APIRES", res);
 
                     JSONObject obj = new JSONObject(res);
                     JSONArray recipes_arr = obj.getJSONArray("result");
@@ -173,11 +174,16 @@ public class MainActivity extends AppCompatActivity {
 
     protected void showRecipe(RecipeData[] recipe) {
         LayoutInflater line_inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        ViewGroup line1 = (ViewGroup) findViewById(R.id.recipelist_line1);
+        ViewGroup line2 = (ViewGroup) findViewById(R.id.recipelist_line2);
+        line1.removeAllViews();
+        line2.removeAllViews();
         for (int i = 0; i < recipe.length; i++) {
             Log.d("URL", recipe[i].getImgURL());
             if ((i % 2) == 0) {
                 LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
                 View view = inflater.inflate(R.layout.recipe_card, (ViewGroup) findViewById(R.id.recipelist_line1), true);
+                ViewGroup temp = (ViewGroup) findViewById(R.id.recipelist_line1);
                 ImageView imageView = view.findViewById(R.id.recipe_image);
                 Glide.with(this).load(recipe[i].getImgURL()).into((imageView));
                 imageView.setId(i);
